@@ -1,0 +1,53 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/stories.css">
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="paddingleftright">
+        <% if(stories.length > 0) { %>
+            <h2>My Stories</h2>
+            <a href="/addstory" class="addstory">Add New Story<i class="fa fa-plus-circle" style="margin-left: 5px;"></i></a>
+                <div class="storiesflex">
+                    <% for (let story of stories) { %>
+                    <div class="card">
+                        <div class="icon">
+                            <a href="/<%= story._id %>?edit=true" class="edit"><i class="fa fa-edit"></i></a>
+                            <form class="deleteform" action="/deleteStory" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                                <input type="hidden" name="storyId" value="<%= story._id %>" />
+                                <button type="submit" class="deletebutton"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </div>
+                        <div class="title text-center">
+                            <%= story.title %>
+                        </div>
+                        <div class="story text-center">
+                            <%= story.story %>
+                        </div>
+                        <div class="user text-center">
+                            <div class="user-image">
+                                    <% if(story.userId.imageUrl == '' || story.userId.imageUrl == null) { %>
+                                        <img src="../images/user.png" alt="user Image" />
+                                    <% } else { %>
+                                        <img src="/<%= story.userId.imageUrl %>" alt="user Image" />
+                                    <% } %>
+                            </div>
+                            <div class="user-name">
+                                <%= story.userId.firstname %> <%= story.userId.lastname %>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="button text-center">
+                            <a href="/publicstories/<%= story._id %>">READ MORE</a>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+        <% } else { %>
+            <h3 class="nostories">You Have No Stories Yet!!</h3>
+            <a href="/addstory" class="createe">Create New Story</a>
+        <% } %>
+    </main>
+    <%- include('includes/footer.ejs') %>

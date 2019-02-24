@@ -1,0 +1,175 @@
+.text-center {
+    text-align: center;
+}
+
+main h2 {
+    font-size: 40px;
+    margin-top: 50px;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+main .addstory {
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: lightgrey;
+    color: white;
+    font-weight: 800;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+@media(max-width: 460px) {
+    main .addstory {
+        display: inline-block;
+        margin-top: 20px;
+    }
+}
+
+main .storiesflex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+main .storiesflex .card {
+    flex: 0 0 31%;
+    border: 2px solid grey;
+    box-shadow: 3px 3px 8px 0px;
+    padding: 12px 18px;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+@media(max-width: 922px) {
+    main .storiesflex .card {
+        flex: 0 0 48%;
+    }
+}
+
+@media(max-width: 600px) {
+    main .storiesflex .card {
+        flex: 0 0 100%;
+    }
+}
+
+main .storiesflex .card .icon {
+    position: absolute;
+    top: -18px;
+    right: 45px;
+}
+main .storiesflex .card .icon a i {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #e85428;
+    color: white;
+}
+
+main .storiesflex .card .title {
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+main .storiesflex .card .story {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+main .storiesflex .card .user {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    border-radius: 40px;
+    max-width: 214px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .storiesflex .card .user .user-image {
+
+}
+
+main .storiesflex .card .user .user-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 6px;
+}
+
+main .storiesflex .card .user .user-name {
+    margin-left: 5px;
+    font-size: 17.5px;
+    color: chocolate;
+    font-weight: bolder;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main .storiesflex .button a {
+    text-decoration: none;
+    background-color: darkgray;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.nostories {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+.createe{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    background-color: #e85428;
+    color: white;
+    font-weight: bolder;
+    text-transform: none;
+    padding: 7px 13px;
+    text-decoration:none;
+}
+
+@media(max-width: 906px) {
+    .createe {
+        top: 70%;
+        font-size: 17px;
+    }
+}
+
+main .storiesflex .card form {
+    position: absolute;
+    top: 0%;
+    left: 40px;
+}
+
+main .storiesflex .card form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+main .storiesflex .card form button i {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #e85428;
+    color: white;
+}

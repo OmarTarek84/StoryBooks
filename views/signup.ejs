@@ -1,0 +1,43 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="paddingleftright">
+        <form method="POST" action="/signup" enctype="multipart/form-data">
+            <h1 class="text-center">Sign Up</h1>
+            <% if(errorMessage!= null) { %>
+            <div class="text-center user-message user-message--error">
+                <%= errorMessage %>
+            </div>
+            <% } %>
+            <div class="inputParent">
+                <label for="firstname">First Name<span class="required">*</span></label>
+                <input type="text" name="firstname" id="firstname" placeholder="First Name" required value="<%= oldInput.firstname %>" />
+            </div>
+            <div class="inputParent">
+                <label for="lastname">Last Name<span class="required">*</span></label>
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name" required value="<%= oldInput.lastname %>" />
+            </div>
+            <div class="inputParent">
+                <label for="email">Email<span class="required">*</span></label>
+                <input type="email" name="email" id="email" placeholder="Email" required value="<%= oldInput.email %>" />
+            </div>
+            <div class="inputParent">
+                <label for="password">Password<span class="required">*</span></label>
+                <input type="password" name="password" id="password" placeholder="Password" required />
+            </div>
+            <div class="inputParent">
+                <label for="confirmpassword">Confirm Password<span class="required">*</span></label>
+                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" required />
+            </div>
+            <div class="inputParent">
+                <label for="image">Upload Your Photo</label>
+                <input type="file" name="image" id="image" />
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <button type="submit">Sign Up</button>
+        </form>
+    </main>
+    <%- include('includes/footer.ejs') %>

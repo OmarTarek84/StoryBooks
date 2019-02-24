@@ -1,0 +1,81 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="paddingleftright">
+        <h1 class="title"><%= story.title %>
+            <% if(story.userId._id.toString() == idUser) { %>
+            <a href="/<%= story._id %>?edit=true" style="margin-left: 70px;">
+                <i class="fa fa-edit" style="border-radius: 50%; background-color: #e85428; padding: 12px; color: white;"></i>
+            </a>
+            <% } %>
+        </h1>
+        <div class="flex">
+            <div class="storySection">
+                <div class="story">
+                    <h3><%= story.date %></h3>
+                    <p><%= story.story %></p>
+                </div>
+                <div class="addcomment">
+                    <% if(story.allowComments) { %>
+                    <h3>comments</h3>
+                    <% } %>
+                    <% if (isAuthenticated && story.allowComments) { %>
+                    <form action="/addcomment" method="POST">
+                        <label for="comment">Add Comment</label>
+                        <input type="text" name="comment" id="comment" />
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                        <input type="hidden" name="storyId" value="<%= story._id %>" />
+                        <button type="submit" class="submitButton">Submit</button>
+                    </form>
+                    <% } else if(!isAuthenticated) { %>
+                    <p>Please <a href="/login">login</a> to leave a comment</p>
+                    <% } else if(isAuthenticated && !story.allowComments) { %>
+                        <h2>Comments are not allowed here!!</h2>
+                    <% } %>
+                </div>
+                <% if(story.comments.length > 0) { %>
+                    <div class="comments">
+                        <% for(let comment of story.comments) { %>
+                            <div class="comment">
+                                <h3><%= comment.commentBody %></h3>
+                                <div class="user text-center">
+                                    <div class="user-image">
+                                        <% if(comment.userCommentId.imageUrl != null) { %>
+                                            <img src="/<%= comment.userCommentId.imageUrl %>" alt="image" />
+                                        <% } else if(comment.userCommentId.imageUrl == null) { %>
+                                            <img src="../images/user.png" alt="user Image" />
+                                        <% } %>
+                                    </div>
+                                    <div class="user-name">
+                                        <%= comment.userCommentId.firstname %> <%= comment.userCommentId.lastname %>
+                                    </div>
+                                </div>
+                                <div class="commentDate">
+                                    Posted: <%= comment.commentDate %>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+            <div class="userImage">
+                <div class="border">
+                    <h4><%= story.userId.firstname %> <%= story.userId.lastname %></h4>
+                    <div class="image">
+                    <% if(story.userId.imageUrl == '' || story.userId.imageUrl == null) { %>
+                        <img src="../images/user.png" alt="user Image" />
+                    <% } else { %>
+                        <img src="/<%= story.userId.imageUrl %>" alt="user Image" />
+                    <% } %>
+                    </div>
+                    <hr>
+                    <a href="/story/<%= story.userId._id %>">More From <%= story.userId.firstname %></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>

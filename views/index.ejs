@@ -1,0 +1,18 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="paddingleftright">
+        <h1 class="welcome">Welcome</h1>
+        <h5 class="welcome2">Welcome to StoryBooks 1.5.5</h5>
+        <span class="intro">Post stories from the best and worst of your life and choose for them to be read by the world or completley private as your own personal diary</span>
+        <div class="choice">
+            <p class="go"><a href='/publicstories' style="font-size: 22px; color: brown; font-weight: bolder;">Go</a> To see Public Stories</p>
+            <% if(!isAuthenticated) { %>
+            <h4 style="padding-top: 7px; padding-bottom: 7px; font-size: 27px;">or</h4>
+            <a href="/login" style="font-size: 22px; color: brown; font-weight: bolder;">LogIn</a> <span> to Post Your Own Story & comment on other Stories</span>
+            <% } %>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>

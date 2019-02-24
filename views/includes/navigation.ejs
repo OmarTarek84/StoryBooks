@@ -1,0 +1,45 @@
+<div class="navbar paddingleftright">
+    <label for="nav" class="nav1">menu</label>
+    <input type="checkbox" id="nav" name="nav" />
+    <div class="navbar__options">
+        <label for="close" class="close">menu</label>
+        <input type="checkbox" id="close22" />
+        <div class="close-navbar">
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="ulList">
+            <% if(!isAuthenticated) { %>
+            <li><a href="/login">login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/publicstories">Public Stories</a></li>
+            <% } else { %>
+            <li><a href="/publicstories">Public Stories</a></li>
+            <li><a href="/mystories">My Stories</a></li>
+            <li><a href="/addstory">Add New Story</a></li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="navbar_flex">
+        <div class="navbar-button">
+            <span></span>
+        </div>
+        <div class="navbar-title">
+            StoryLine
+        </div>
+        <% if(isAuthenticated) { %>
+        <div class="welcome">
+            <p>Welcome <%= username %></p>
+            <div class="logout">
+                <form method="POST" action="/logout" style="margin: 0;" class="logoutform">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <button type="submit" style="color: white; font-weight: 600; font-size: 18px;">Log Out</button>
+                </form>
+            </div>
+        </div>
+        <% } %>
+        <div class="navbar-public-books">
+            <a href="/publicstories">Public Stories</a>
+        </div>
+    </div>
+</div>

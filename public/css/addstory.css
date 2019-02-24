@@ -1,0 +1,62 @@
+.text-center {
+    text-align: center;
+}
+
+form {
+    margin-top: 60px;
+}
+
+form h1 {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+form .inputParent {
+    margin-top: 23px;
+}
+
+form .inputParent label {
+    font-size: 20px;
+    color: chocolate;
+}
+
+form .inputParent input,
+form .inputParent textarea {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 8px;
+    outline: none;
+}
+
+form .inputParent textarea {
+    height: 120px;
+}
+
+form .inputParent input[type="checkbox"] {
+    display: inline;
+    width: auto;
+}
+
+form button {
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid blue;
+    padding: 7px 11px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.select {
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+    padding: 9px;
+    margin-top: 6px;
+}

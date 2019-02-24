@@ -1,0 +1,42 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/addstory.css">
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="paddingleftright">
+        <form method="POST" action="<% if(editing) { %>/editstory<% } else { %>/addstory<% } %>">
+            <h1 class="text-center"><% if(editing) { %>Edit Story<% } else { %> Add Story <% } %></h1>
+            <div class="inputParent">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title" value="<% if(editing) { %><%= story.title %><% } %>" required />
+            </div>
+            <div class="inputParent">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="select">
+                    <option value="public" 
+                    <% if(editing && story.status == 'public') { %>selected<% } %>
+                    > Public</option>
+                    <option value="private" <% if(editing && story.status == 'private') { %>selected<% } %>>Private</option>
+                </select>
+            </div>
+            <div class="inputParent">
+                <input type="checkbox" name="allowcomments" id="allowcomments" 
+                <% if(editing && story.allowComments == true) { %>checked<% } %>
+                <% if(!editing) { %>checked<% } %> />
+                <label for="allowcomments">Allow Comments</label>
+            </div>
+            <div class="inputParent">
+                <label for="story">Tell Us Your Story</label>
+                <textarea type="text" name="story" id="story" placeholder="story" required><% if(editing) { %><%= story.story %><% } %></textarea>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <% if(editing) { %>
+            <input type="hidden" name="storyId" value="<%= story._id %>" />
+            <% } %>
+            <button type="submit">
+                <% if(editing) { %>Edit<% } else { %>Save<% } %>
+            </button>
+        </form>
+    </main>
+    <%- include('includes/footer.ejs') %>

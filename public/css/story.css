@@ -1,0 +1,192 @@
+main {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+main .title {
+    text-transform: capitalize;
+    background-color: lightgray;
+    color: white;
+    font-weight: 800;
+    padding: 10px;
+}
+
+@media(max-width: 805px) {
+    main .title {
+        font-size: 20px;
+    }
+}
+
+main .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+@media(max-width: 805px) {
+    main .flex {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+}
+
+main .flex .storySection {
+    flex: 0 0 58%;
+}
+
+@media(max-width: 805px) {
+    main .flex .storySection {
+        flex: 0 0 100%;
+    }
+}
+
+main .flex .storySection .story {
+    border: 1.5px solid grey;
+    padding: 13px;
+    box-shadow: 1px 3px 6px 1px;
+}
+
+main .flex .storySection .story p {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+main .flex .storySection .addcomment {
+    margin-top: 30px;
+    border: 1.5px solid grey;
+    padding: 13px;
+    box-shadow: 1px 3px 6px 1px;
+}
+
+main .flex .storySection .addcomment h3 {
+    text-transform: capitalize;
+    margin-bottom: 9px;
+    font-size: 24px;
+}
+
+main .flex .storySection .addcomment form {
+    margin-top: 20px;
+}
+
+main .flex .storySection .addcomment form label {
+    color: darkgray;
+    margin-left: 20px;
+}
+
+main .flex .storySection .addcomment form input[type="text"] {
+    margin-top: 8px;
+    display: block;
+    border: none;
+    border-bottom: 2px solid grey;
+    width: 90%;
+    padding: 7px;
+    margin-left: 20px;
+    outline: none;
+}
+
+main .flex .storySection .addcomment form button {
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: chocolate;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main .flex .userImage {
+    flex: 0 0 38%;
+}
+
+@media(max-width: 805px) {
+    main .flex .userImage {
+        flex: 0 0 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+}
+
+main .flex .userImage .border {
+    border: 1.5px solid grey;
+    padding: 13px;
+    box-shadow: 1px 3px 6px 1px;
+    text-align: center;
+}
+
+main .flex .userImage h4 {
+    font-size: 30px;
+    color: #523f3f;
+}
+
+main .flex .userImage .image {
+    margin-bottom: 10px;
+}
+
+main .flex .userImage .image img {
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+}
+
+main .flex .userImage .border a {
+    color: peru;
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.comments .comment {
+    margin-top: 30px;
+    border: 1.5px solid grey;
+    padding: 13px;
+    box-shadow: 1px 3px 6px 1px;
+    margin-bottom: 30px;
+}
+
+.comments .comment h3 {
+    font-size: 30px;
+}
+
+@media(max-width: 805px) {
+    .comments .comment h3 {
+        font-size: 21px
+    }
+}
+
+.comments .comment .user {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    border-radius: 40px;
+    max-width: 214px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 23px;
+}
+
+.comments .comment .user .user-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 6px;
+}
+
+.comments .comment .user .user-name {
+    margin-left: 5px;
+    font-size: 17.5px;
+    color: chocolate;
+    font-weight: bolder;
+}

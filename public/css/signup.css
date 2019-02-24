@@ -1,0 +1,65 @@
+.text-center {
+    text-align: center;
+}
+
+form {
+    margin-top: 60px;
+}
+
+form h1 {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+form .inputParent {
+    margin-top: 23px;
+}
+
+form .inputParent label {
+    font-size: 20px;
+}
+
+form .inputParent input {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 8px;
+    outline: none;
+}
+
+form button {
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid blue;
+    padding: 7px 11px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+span.required {
+    color: red;
+    margin-left: 5px;
+}
+
+.user-message {
+    width: 30rem;
+    margin: auto;
+    width: 90%;
+    border: 1px solid #4771fa;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: #b9c9ff;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.user-message--error {
+  border-color: red;
+  background: rgb(255, 176, 176);
+  color: red;
+}
